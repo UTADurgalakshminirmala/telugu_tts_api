@@ -5,8 +5,9 @@ import os
 from fastapi.responses import FileResponse
 from datetime import datetime
 
-API_KEY = "h830-5534-980-8639N"
-API_KEY_NAME = "AI Dubbing Api Key"
+# Secure API key from environment
+API_KEY = os.getenv("API_KEY")
+API_KEY_NAME = "Ai-Dubbing-API-Key"  # Custom header name
 
 app = FastAPI()
 
@@ -17,8 +18,9 @@ class TTSRequest(BaseModel):
     text: str
     lang: str = "te"
 
-def verify_api_key(x_api_key: str = Header(...)):
-    if x_api_key != API_KEY:
+# Verify custom header key
+def verify_api_key(Ai_Dubbing_API_Key: str = Header(...)):
+    if Ai_Dubbing_API_Key != API_KEY:
         raise HTTPException(status_code=401, detail="Invalid or missing API Key")
 
 @app.post("/generate_tts/")
