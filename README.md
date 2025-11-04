@@ -9,15 +9,12 @@ A simple API to generate Telugu text-to-speech audio using **Python** + **FastAP
 - Returns the audio file as a response  
 - Protects access via a custom API key header  
 
----
-
 ## Requirements
 
-- **Python 3.11+**  
+- **Python 3.11**  
 - Python packages: `fastapi`, `uvicorn`, `gtts`, `pydantic`  
 - An environment variable `API_KEY` set to your secret key  
 
----
 
 ##  Setup & Run
 
@@ -37,9 +34,10 @@ source .venv/bin/activate  # Linux / macOS
 pip install -r requirements.txt
 
 4.Api key in terminal
-# Windows PowerShell
 $env:API_KEY = "h830-5534-980-8639N"
-5.uvicorn api:app --reload
+
+5. For running the code in terminal
+uvicorn api:app --reload
 
 6.Open the docs interface:
 http://127.0.0.1:8000/docs
